@@ -13,6 +13,20 @@ export const authenticate = token => {
       }
 };
 
+export const validateJwt = token => {
+    return new Promise((resolve, reject) => {
+        jwt.verify(token, process.env.SECRET_KEY, { algorithm: 'HS256'}, (err, decoded) => {
+            if(err) {return reject(err)}
+            return resolve(decoded);
+        })
+    })
+}
+
+export const generateToken = data => {
+    const expiresIn = '5h';
+    const token = jwt.sign({data}, process.env.SECRET_KEY, { expiresIn });
+    return token;
+}
 
 export default {
     signup: Joi.object().keys({

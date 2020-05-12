@@ -21,7 +21,7 @@ const Query = {
         const token: string = req.req.headers.authorization || '';
         const isAuthenticated = authenticate(token);
         if(!isAuthenticated) {
-            throw new Error('Please login first');
+            throw new Error('Invalid Token.Please login first');
         }
         return fetch(`${url}/jokes/random`)
             .then(res => res.json())
@@ -35,7 +35,7 @@ const Query = {
         const token: string = req.req.headers.authorization || '';
         const isAuthenticated = authenticate(token);
         if(!isAuthenticated) {
-            throw new Error('Please login first');
+            throw new Error('Invalid Token.Please login first');
         }
 
         return fetch(`${url}/jokes/random?category=${category}`)
@@ -48,7 +48,7 @@ const Query = {
         const token: string = req.req.headers.authorization || '';
         const isAuthenticated = authenticate(token);
         if(!isAuthenticated) {
-            throw new Error('Please login first');
+            throw new Error('Invalid Token.Please login first');
         }
 
         return fetch(`${url}/jokes/categories`)

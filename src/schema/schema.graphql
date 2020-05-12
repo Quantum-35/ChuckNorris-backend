@@ -10,7 +10,12 @@ type Query {
 
 type User {
     email: String
-    password: String
+    # password: String
+}
+
+type SignInType {
+    email: String
+    token: String
 }
 
 type Jokes {
@@ -29,6 +34,11 @@ input CreateUserInput {
     password: String!
 }
 
+input SignInInput {
+    email: String!
+    password: String!
+}
+
 input CreateJokesInput {
     icon_url: String!
     url: String!
@@ -42,6 +52,7 @@ input CreateCategoryInput {
 # Mutation
 type Mutation {
     createUser(data: CreateUserInput!): User!
+    signIn(data: SignInInput!): SignInType!
     createJoke(data: CreateJokesInput!): Jokes!
     createCategory(data: CreateCategoryInput!): [String]!
 }
