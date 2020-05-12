@@ -3,7 +3,8 @@ scalar DateTime
 type Query {
     users(query: String): [User!]!
     jokes(query: String): Jokes!
-    category(query: String): [Category]!
+    categoryJokes(category: String!): Jokes!
+    categories(query: String): [String]!
 }
 
 type User {
@@ -17,12 +18,7 @@ type Jokes {
     updated_at: DateTime!
     url: String!
     value: String!
-    categories: [Category]
-}
-
-type Category {
-    name: String
-    id: ID
+    categories: [String!]
 }
 
 # Inputs
@@ -44,5 +40,5 @@ input CreateCategoryInput {
 type Mutation {
     createUser(data: CreateUserInput!): User!
     createJoke(data: CreateJokesInput!): Jokes!
-    createCategory(data: CreateCategoryInput!): Category!
+    createCategory(data: CreateCategoryInput!): [String]!
 }
