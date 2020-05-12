@@ -30,6 +30,8 @@
     "graphql-import-node": "^0.0.4",
     "graphql-tools": "^5.0.0",
     "helmet": "^3.22.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.13",
     "node-fetch": "^2.6.0"
   }
 }
