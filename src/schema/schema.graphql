@@ -2,7 +2,7 @@ scalar DateTime
 
 type Query {
     users(query: String): [User!]!
-    jokes(query: String): [Jokes!]!
+    jokes(query: String): Jokes!
     category(query: String): [Category]!
 }
 
@@ -17,7 +17,7 @@ type Jokes {
     updated_at: DateTime!
     url: String!
     value: String!
-    category: [Category]
+    categories: [Category]
 }
 
 type Category {

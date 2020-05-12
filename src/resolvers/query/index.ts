@@ -1,8 +1,17 @@
+const fetch = require('node-fetch');
+
+
 const Query = {
-    users(parent, args, {  }, info) {
-        console.log('@@ Here')
-       return [{name: "hellow"}]
+    async users(parent, args, { url, req }, info) {
+        return [{name: "hellow"}]
     
+    },
+    async jokes(parent, args, { url, req }, info) {
+        return fetch(`${url}/random`)
+            .then(res => res.json())
+            .then(body => {
+                return body;
+            });
     }
 }
 
