@@ -2,13 +2,15 @@ scalar DateTime
 
 type Query {
     users(query: String): [User!]!
+    user(email: String!): User!
     jokes(query: String): Jokes!
     categoryJokes(category: String!): Jokes!
     categories(query: String): [String]!
 }
 
 type User {
-    name: String
+    email: String
+    password: String
 }
 
 type Jokes {
@@ -23,7 +25,8 @@ type Jokes {
 
 # Inputs
 input CreateUserInput {
-    name: String
+    email: String!
+    password: String!
 }
 
 input CreateJokesInput {

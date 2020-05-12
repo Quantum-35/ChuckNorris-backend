@@ -3,8 +3,18 @@ import { authenticate } from '../../utils/validate';
 const fetch = require('node-fetch');
 
 const Query = {
-    async users(parent, args, { url, req }, info) {
-        return [{name: "hellow"}]
+    async users(_, args, { url, db }, info) {
+        const users = await db.collection('users').find().toArray();
+        return users
+    
+    },
+    async user(_, args, { url, db }, info) {
+        const { email } = args;
+        if(!email) throw new Error('Email required');
+        const user = await db.collection('users').findOne({
+            email
+        });
+        return user
     
     },
     async jokes(_, args, { url, req }, info) {
