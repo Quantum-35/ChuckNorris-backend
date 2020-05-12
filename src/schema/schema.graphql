@@ -1,0 +1,48 @@
+scalar DateTime
+
+type Query {
+    users(query: String): [User!]!
+    jokes(query: String): [Jokes!]!
+    category(query: String): [Category]!
+}
+
+type User {
+    name: String
+}
+
+type Jokes {
+    created_at: DateTime!
+    icon_url: String!
+    id: ID!
+    updated_at: DateTime!
+    url: String!
+    value: String!
+    category: [Category]
+}
+
+type Category {
+    name: String
+    id: ID
+}
+
+# Inputs
+input CreateUserInput {
+    name: String
+}
+
+input CreateJokesInput {
+    icon_url: String!
+    url: String!
+    value: String!
+}
+
+input CreateCategoryInput {
+    name: String
+}
+
+# Mutation
+type Mutation {
+    createUser(data: CreateUserInput!): User!
+    createJoke(data: CreateJokesInput!): Jokes!
+    createCategory(data: CreateCategoryInput!): Category!
+}
