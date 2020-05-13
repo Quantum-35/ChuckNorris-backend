@@ -51,7 +51,7 @@ input CreateCategoryInput {
 
 # Mutation
 type Mutation {
-    createUser(data: CreateUserInput!): User!
+    createUser(data: CreateUserInput!): SignInType!
     signIn(data: SignInInput!): SignInType!
     createJoke(data: CreateJokesInput!): Jokes!
     createCategory(data: CreateCategoryInput!): [String]!
