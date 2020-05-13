@@ -17,7 +17,12 @@ const Mutation = {
         const encPassword = bcrypt.hashSync(password, 8)
         const { ops } = await db.collection('users').insert({ email, password: encPassword });
         console.log('@@', ops[0]);
-        return ops[0];
+        const token = generateToken(email);
+        const results = {
+            email: ops[0].email,
+            token
+        }
+        return results;
     },
     async signIn(_, args, { db }, info) {
         const { email, password } = args.data;
