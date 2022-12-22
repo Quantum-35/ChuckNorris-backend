@@ -32,7 +32,7 @@
     "graphql-import-node": "^0.0.4",
     "graphql-tools": "^5.0.0",
     "helmet": "^3.22.0",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "lodash": "^4.17.15",
     "mongodb": "^3.5.7",
     "node-fetch": "^2.6.0"
